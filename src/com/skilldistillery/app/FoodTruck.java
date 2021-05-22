@@ -4,14 +4,18 @@ public class FoodTruck {
 	
 	private static int uniqueIdGenerator = 10001;
 	private final int uniqueId;
+	{
+		this.uniqueId = uniqueIdGenerator;
+		uniqueIdGenerator++;
+	}
 	private String name;
 	private String foodType;
 	private double rating;
+	private static double sumOfAllRatings;
 	
 	// no-arg constructor
 	public FoodTruck() {
-		this.uniqueId = uniqueIdGenerator;
-		++uniqueIdGenerator;
+		
 	}
 	
 	// 3-arg constructor
@@ -19,8 +23,7 @@ public class FoodTruck {
 		this.name = name;
 		this.foodType = foodType;
 		this.rating = rating;
-		this.uniqueId = uniqueIdGenerator;
-		++uniqueIdGenerator;
+		sumOfAllRatings += this.rating;
 	}
 
 
@@ -57,6 +60,12 @@ public class FoodTruck {
 	public int getUniqueId() {
 		return uniqueId;
 	}
+
+	public double getAllTruckAverageRating() {
+		return sumOfAllRatings / ((uniqueIdGenerator - 1) % 10000);
+	}
+	
+	
 
 	@Override
 	public String toString() {
