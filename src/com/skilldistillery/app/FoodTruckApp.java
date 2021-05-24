@@ -34,11 +34,15 @@ public class FoodTruckApp {
 		kb.close();
 	}
 
+	// Prints welcome header when user first enters program
+	//-----------------------------------------------------
 	private void printWelcomeHeader() {
 		System.out.println("*************************Welcome to the Food Truck App*************************");
 		System.out.println("-------------------------------------------------------------------------------");
 	}
 
+	// Loops truck creation options for creating up to five trucks
+	//------------------------------------------------------------
 	private FoodTruck[] truckCreationMenu(Scanner kb) {
 		FoodTruck[] foodTrucksTemp = new FoodTruck[5];
 
