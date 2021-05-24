@@ -29,7 +29,7 @@ public class FoodTruckApp {
 		// -----------------------------------------
 		foodTruckApp.printFarewell();
 
-		// Housekeeping, close all doors, don't let the refrigerated air out!
+		// Housekeeping, close all doors, don't let the cold air out!
 		// -------------------------------------------------------------------
 		kb.close();
 	}
@@ -74,6 +74,8 @@ public class FoodTruckApp {
 		return Arrays.copyOf(foodTrucksTemp, index); // TODO FIXME
 	}
 
+	// This menu prints available options for viewing food truck data
+	//---------------------------------------------------------------
 	private void printMenu() {
 		System.out.println("                                 - Main Menu -");
 		System.out.println("\nPlease make a selection from the following choices: ");
@@ -83,11 +85,9 @@ public class FoodTruckApp {
 		System.out.println("4) Exit and close program");
 		System.out.print("\nInput your selection as a number from 1 - 4: ");
 	}
-
-	private void viewAllFoodTrucks() {
-
-	}
-
+	
+	// Handles switching on user selection from options in printMenu
+	//--------------------------------------------------------------------------
 	private void makeMenuSelections(FoodTruckApp foodTruckApp, FoodTruck[] foodTrucks, Scanner kb) {
 		boolean quitLoop = false;
 
@@ -120,6 +120,8 @@ public class FoodTruckApp {
 		}
 	}
 
+	// The do-stuff method for selection one in printMenu options
+	//-----------------------------------------------------------
 	private void menuSelectionOne(FoodTruck[] foodTrucks) {
 		System.out.println("-------------------------------------------------------------------------------");
 		for (FoodTruck truck : foodTrucks) {
@@ -127,12 +129,16 @@ public class FoodTruckApp {
 		}
 	}
 
+	// The do-stuff method for selection two in printMenu options
+	//-----------------------------------------------------------
 	private void menuSelectionTwo(FoodTruck[] foodTrucks) {
 		double average = foodTrucks[0].getAllTruckAverageRating();
 		System.out.println("-------------------------------------------------------------------------------");
 		System.out.println("The average rating of all the food trucks is: " + average + " stars");
 	}
 
+	// The do-stuff method for selection three in printMenu options
+	//-------------------------------------------------------------
 	private void menuSelectionThree(FoodTruck[] foodTrucks) {
 		int highestRatedIndex = 0;
 		for (int i = 0; i < foodTrucks.length; ++i) {
@@ -145,12 +151,16 @@ public class FoodTruckApp {
 		foodTrucks[highestRatedIndex].toString();
 	}
 
+	// This method creates a user-keyed pause before reprinting menu
+	//--------------------------------------------------------------
 	private void pauseBeforeContinuing(Scanner kb) {
 		System.out.print("\nInput any letter or number to continue...");
 		String userInput = kb.next();
 		System.out.println();
 	}
 
+	// This method validates user input where an int is desired
+	//---------------------------------------------------------
 	private int validateIntInput(Scanner kb, int whichMenu) {
 		boolean isInt = false;
 		int number = 0;
@@ -177,4 +187,4 @@ public class FoodTruckApp {
 	private void printFarewell() {
 		System.out.println("---------------------------------- Farewell! ----------------------------------");
 	}
-}
+}//close brace for public class

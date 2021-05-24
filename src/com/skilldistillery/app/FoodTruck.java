@@ -2,7 +2,13 @@ package com.skilldistillery.app;
 
 public class FoodTruck {
 	
+	// Class fields
+	//-------------
 	private static int uniqueIdGenerator = 10001;
+	
+	// Field intializer block assigns each class instance a unique ID
+	// Static field uniqueIDGenerator is then incremented for next instance
+	//---------------------------------------------------------------------
 	private final int uniqueId;
 	{
 		this.uniqueId = uniqueIdGenerator;
@@ -14,11 +20,13 @@ public class FoodTruck {
 	private static double sumOfAllRatings;
 	
 	// no-arg constructor
+	//-------------------
 	public FoodTruck() {
 		
 	}
 	
 	// 3-arg constructor
+	//------------------
 	public FoodTruck(String name, String foodType ,double rating) {
 		this.name = name;
 		this.foodType = foodType;
@@ -27,6 +35,8 @@ public class FoodTruck {
 	}
 
 
+	// Getters and setters follow
+	//---------------------------
 	public String getName() {
 		return name;
 	}
@@ -66,19 +76,15 @@ public class FoodTruck {
 	}
 	
 	
-
+	// Overrides built in toString() for class method
+	//-----------------------------------------------
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("name = ");
-		builder.append(name);
-		builder.append(", uniqueID = ");
-		builder.append(uniqueId);
-		builder.append(", rating = ");
-		builder.append(rating);
-		builder.append(" Stars");
+		builder.append(String.format("-Name: %-10s , ", name));
+		builder.append(String.format("ID#: %-7s, ", uniqueId));
+		builder.append(String.format("Rating: %-7f -", rating));
 		return builder.toString(); 
 	}
 	
-	
-}
+} //close brace for class
